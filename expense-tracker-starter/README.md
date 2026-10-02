@@ -56,3 +56,7 @@ Users can add, edit, delete, and filter expenses, while viewing the total amount
 
 
 The hardest part was making the application fully responsive for different screen sizes. I tried different CSS solutions, but the responsive design did not work perfectly, especially on mobile screens.
+
+## GitHub Repository
+
+[View the project on GitHub](https://github.com/eidalakhras/expense-tracker)
