@@ -60,3 +60,7 @@ The hardest part was making the application fully responsive for different scree
 ## GitHub Repository
 
 [View the project on GitHub](https://github.com/eidalakhras/expense-tracker)
+
+## UI Demo Video
+
+[Watch the UI Demo Video on Google Drive](https://drive.google.com/file/d/1Bkw0PFac0T9SDWXMMy-sOqM3VTKCrUB_/view?usp=drive_link)

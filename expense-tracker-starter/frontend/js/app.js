@@ -97,6 +97,8 @@ function renderSummary(expenses) {
 async function refresh() {
     const expenses = await getExpenses();
 
+    currentExpenses = expenses;
+
     renderTable(expenses);
     renderSummary(expenses);
 }
@@ -366,4 +368,41 @@ expenseForm.addEventListener("submit", async (event) => {
     console.error(error);
     showAlert(error.message);
 }
+});
+let currentExpenses = [];
+let sortDirection = "asc";
+
+document.addEventListener("click", (event) => {
+    if (!event.target.classList.contains("sortable")) {
+        return;
+    }
+
+    const sortBy = event.target.dataset.sort;
+
+    currentExpenses.sort((a, b) => {
+        let valueA = a[sortBy];
+        let valueB = b[sortBy];
+
+        if (sortBy === "amount") {
+            valueA = Number(valueA);
+            valueB = Number(valueB);
+        } else {
+            valueA = String(valueA).toLowerCase();
+            valueB = String(valueB).toLowerCase();
+        }
+
+        if (valueA < valueB) {
+            return sortDirection === "asc" ? -1 : 1;
+        }
+
+        if (valueA > valueB) {
+            return sortDirection === "asc" ? 1 : -1;
+        }
+
+        return 0;
+    });
+
+    renderTable(currentExpenses);
+
+    sortDirection = sortDirection === "asc" ? "desc" : "asc";
 });
